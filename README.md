@@ -8,6 +8,7 @@ Django-skell provides you a django project template (skeleton) so that you can q
 much configuration and deploy your code to Heroku easily.
 
 This extension provides:
+
     * A mainpage with Bootstrap 3.0.2
     * Social authorization mechanism with django-allauth
 
