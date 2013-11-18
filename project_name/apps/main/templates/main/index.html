@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load socialaccount %}
+
 {% block content %}
 <!-- Jumbotron -->
 <div class="jumbotron">
@@ -8,13 +8,20 @@
     <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus
         commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
 
-    <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+    <p><a class="btn btn-lg btn-success" href="{¾ url 'account_signup' %}" role="button">Get started today</a></p>
     <p>
-
-        <a href="{% provider_login_url 'facebook' method='js_sdk' %}">Facebook Connect</a>
-        <a href="{% provider_login_url 'openid' openid='https://www.google.com/accounts/o8/id' next='success/url/'
-        %}">Google</a>
-        <a href="{% provider_login_url 'twitter' %}">Twitter</a>
+        {% include "socialaccount/snippets/login_extra.html" %}
+        {% load socialaccount %}
+        <a href="{% provider_login_url 'facebook' method='js_sdk' %}"><img src="{{STATIC_URL}}/images/social/facebook.png"/></a>
+        <a href="{% provider_login_url 'openid' openid='https://www.google.com/accounts/o8/id' next='success/url/' %}">
+            <img src="{{STATIC_URL}}/images/social/google.png"/>
+        </a>
+        <a href="{% provider_login_url 'twitter' %}">
+            <img src="{{STATIC_URL}}/images/social/twitter.png"/>
+        </a>
+        <a href="{% provider_login_url 'github' %}">
+            <img src="{{STATIC_URL}}/images/social/github.png"/>
+        </a>
     </p>
 </div>
 
