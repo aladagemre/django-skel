@@ -1,66 +1,46 @@
 django-skel
 ===========
 
-A modern Django (1.5) project skeleton.
+An extension to [django-skel](https://github.com/rdegges/django-skel) of rdegges. See http://django-skel.rtfd.org/ for original
+django-skel documentation.
 
-![A fancy Django project skeleton](https://github.com/rdegges/django-skel/raw/master/docs/source/_static/skel.jpg)
+Django-skell provides you a django project template (skeleton) so that you can quickly start coding without
+much configuration and deploy your code to Heroku easily.
 
+This extension provides:
+    * A mainpage with Bootstrap 3.0.2
+    * Social authorization mechanism with django-allauth
 
-Meta
-====
+This way, you can eliminate the time wasted for HTML templates, authorization integration etc.
 
-* author: Randall Degges
-* email:  rdegges@gmail.com
-* status: maintained, in development
-* notes:  Have feedback? Please send me an email. This project is still in its
-          infancy, and will be changing rapidly.
+How to use it?
+=================
 
+    $ curl https://raw.github.com/aladagemre/django-skel/master/install.py|python
 
-Purpose
-=======
+Then follow the wizard, give the project name and specify heroku settings.
 
-For background, see: http://rdegges.com/deploying-django
+When the downloads and automatic configurations are done, you've got a clean project.
+Firefox should open a new tab and display the admin panel to you.
 
-Essentially--deploying Django projects is hard. There are lots of things you
-need to take into consideration. Being a Django user for years, I believe I've
-found some extremely useful patterns to help manage all sorts of Django sites
-(from the very smallest apps, to the largest).
+Social Settings
+=================
 
-This project is meant to be a boilerplate project for starting development. It
-is heavily opinionated in terms of services and tools--but I think the tradeoff
-is worthwhile.
+In the admin panel's Social App models, create new objects for each system (Facebook, Twitter, Google, Github etc).
+If you want to add other social login systems, add to AUTH_APPS of settings/common.py. See django-allauth for
+possible login systems.
 
-
-Docs
-====
-
-The full project documentation is hosted at RTFD: http://django-skel.rtfd.org/.
-They are continuously updated to reflect changes and information about the
-project, so be sure to read them before using this boilerplate.
+If you don't want to use them, you can remove the appropriate HTML codes from the index page.
 
 
-Install
-=======
+Deploying
+============
 
-django-skel currently supports Django 1.5. To create a new django-skel base
-project, run the following command (this assumes you have Django 1.5 installed
-already):
+When you want to deploy on Heroku,
 
-    $ django-admin.py startproject --template=https://github.com/rdegges/django-skel/zipball/master woot
-    $ heroku config:add DJANGO_SETTINGS_MODULE=myproject.settings.prod
+    $ git push heroku master
+    $ heroku run python manage.py syncdb
+    $ heroku run python manage.py migrate
+    $ heroku run python manage.py collectstatic
 
-
-Where ``woot`` is the name of the project you'd like to create.
-
-This is possible because Django 1.5's ``startproject`` command allows you to
-fetch a project template over HTTP (which is what we're doing here).
-
-While not strictly required, it is also recommended to do
-
-     $ heroku config:add SECRET_KEY=putsomethingfairlycomplexhere
-
-The production settings pull SECRET_KEY from environment but fallbacks
-to a value which is generated mainly for development environment.
-
-This setup allows you to easily keep your site in a public repo if you so 
-wish without causing opening a route to attack your Django passwords.
+And perform similar social app settings on Heroku server.
