@@ -1,13 +1,31 @@
 {% extends "base.html" %}
+
 {% block content %}
 <!-- Jumbotron -->
 <div class="jumbotron">
-    <h1>Marketing stuff!</h1>
+    <div class="text-center">
+    <h1>Welcome Visitor!</h1>
 
-    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus
-        commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
-
-    <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+    <p class="lead">You will be amazed how your life becomes easier with our products. Try and see.</p>
+    {% if not user.is_authenticated %}
+    <p class="text-center"><a class="btn btn-lg btn-success" href="{% url 'account_signup' %}" role="button">Signup</a>
+    <a class="btn btn-lg btn-info" href="{% url 'account_login' %}" role="button">Login</a></p>
+    <p class="text-center">
+    {% include "socialaccount/snippets/login_extra.html" %}
+        {% load socialaccount %}
+        <a href="{% provider_login_url 'facebook' method='js_sdk' %}"><img src="{{STATIC_URL}}/images/social/facebook.png"/></a>
+        <a href="{% provider_login_url 'openid' openid='https://www.google.com/accounts/o8/id' next='success/url/' %}">
+            <img src="{{STATIC_URL}}/images/social/google.png"/>       
+        </a>
+        <a href="{% provider_login_url 'twitter' %}">
+            <img src="{{STATIC_URL}}/images/social/twitter.png"/>
+        </a>
+        <a href="{% provider_login_url 'github' %}">
+            <img src="{{STATIC_URL}}/images/social/github.png"/>
+        </a>
+    </p>
+    {% endif %}
+    </div>
 </div>
 
 <!-- Example row of columns -->

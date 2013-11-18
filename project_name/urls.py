@@ -11,5 +11,8 @@ urlpatterns = patterns('',
     # Admin panel and documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
+    (r'^accounts/', include('allauth.urls')),
     url(r'^$', include('{{ project_name }}.apps.main.urls'))
+
 )
