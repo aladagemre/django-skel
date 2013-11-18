@@ -17,7 +17,8 @@ This way, you can eliminate the time wasted for HTML templates, authorization in
 How to use it?
 =================
 
-    $ curl https://raw.github.com/aladagemre/django-skel/master/install.py|python
+    $ curl https://raw.github.com/aladagemre/django-skel/master/install.py -o install.py
+    $ python install.py
 
 Then follow the wizard, give the project name and specify heroku settings.
 
