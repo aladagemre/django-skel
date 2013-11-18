@@ -17,9 +17,9 @@ else:
     USE_CLOUDAMQP = False
 
 USE_SENDGRID = raw_input("Use SendGrid for sending emails? [Y/n] ").strip().lower() != "n"
-USE_LOGENTRIES = raw_input("Use LogEntries for log management? [n/Y] ").strip().lower() == "y"
+USE_LOGENTRIES = raw_input("Use LogEntries for log management? [y/N] ").strip().lower() == "y"
 USE_TINFOIL = raw_input("Use TinFoil Security for vulnerability scans? [y/N] ").strip().lower() == "y"
-USE_NEWRELIC = raw_input("Use NewRelic for system monitoring? [Y/n] ").strip().lower() != "n"
+USE_NEWRELIC = raw_input("Use NewRelic for system monitoring? [y/N] ").strip().lower() == "y"
 
 
 commands = """
