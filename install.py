@@ -27,7 +27,7 @@ sudo apt-get install libevent-dev libpq-dev libmemcached-dev zlib1g-dev libssl-d
 sudo pip install virtualenv
 virtualenv --distribute general_venv
 . general_venv/bin/activate
-pip install Django==1.7
+pip install Django==1.8.2
 export DJANGO_SETTINGS_MODULE=""
 python general_venv/lib/python2.7/site-packages/django/bin/django-admin.py startproject --template=https://github.com/aladagemre/django-skel/zipball/master {PROJECT_NAME}
 cd {PROJECT_NAME}

@@ -1,11 +1,11 @@
 -r common.txt
-boto==2.32.1
+boto==2.38.0
 cssmin==0.2.0
-django-heroku-memcacheify==0.7
-django-heroku-postgresify==0.3
+django-heroku-memcacheify==0.8
+django-heroku-postgresify==0.4
 django-storages==1.1.8
-gevent==1.0.1
-gunicorn==19.1.1
-jsmin==2.0.11
-newrelic==2.30.0.27
-psycopg2==2.5.4
+gevent==1.0.2
+gunicorn==19.3
+jsmin==2.1.1
+newrelic==2.52.0.40
+psycopg2==2.6.1
